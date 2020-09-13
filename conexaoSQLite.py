@@ -3,7 +3,7 @@ import sqlite3, time
 class Conexao(object):
 
     def conectar(self):
-        #cria o banco de dados e faz a conexão ---------------------------------------------------------------
+        #cria o banco de dados e faz a conexão
         self._conexao = sqlite3.connect("bancoSQLite.db") #cria um banco de dados chamado bancoSQLite
 
         self._cursor = self._conexao.cursor()
