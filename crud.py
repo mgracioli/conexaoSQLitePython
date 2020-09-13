@@ -48,10 +48,24 @@ class Crud(object):
 
     def atualizar_dados(self, nome_antigo, novo_nome):
         try:
-            self.cursor.execute ("UPDATE tabelabancoSQLite SET nome = ? WHERE nome = ?", (nome_antigo, novo_nome, ))
+            self.cursor.execute ("UPDATE tabelabancoSQLite SET nome = ? WHERE nome = ?", (novo_nome, nome_antigo, ))
             self.conexao.commit()
         except Exception as e:
             print('\nNão foi possível atualizar os dados do usuário')
             print(e)
+        else:
+            print('\nUsuário atualizado com sucesso')
+        finally:
+            self.con.desconectar()
+    
+    def excluir_dados(self, nome):
+        try:
+            self.cursor.execute ("DELETE FROM tabelabancoSQLite WHERE nome = ?", (nome, ))
+            self.conexao.commit()
+        except Exception as e:
+            print('\nNão foi possível excluir dados do usuário')
+            print(e)
+        else:
+            print('\nUsuário excluido com sucesso')
         finally:
             self.con.desconectar()
