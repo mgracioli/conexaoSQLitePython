@@ -7,16 +7,21 @@ class Usuario(object):
         self._telefone = telefone  #o self deixa essa variável disponivel para uso dentro de todos os métodos dessa classe
         self._email = email        
         self._cpf = cpf
-
-    #inicio dos getters
-    def get_nome(self):
-        return self._nome
     
-    def get_telefone(self):
+    
+    @property
+    def nome(self):
+        return self._nome.title()   #.title() é para que o nome seja formatado com a primeira letra maiuscula. É um tratamento desse dado para que ele seja adicionado no banco de dados de forma correta, isso justifica o uso das @property
+
+    @property
+    def telefone(self):
         return self._telefone
 
-    def get_email(self):
-        return self._email
+    @property
+    def email(self):
+        return self._email.lower()
 
-    def get_cpf(self):
+    @property
+    def cpf(self):
         return self._cpf
+    

@@ -19,7 +19,7 @@ class Crud(object):
     def inserir_dados(self, usuario):
         try:
             data = time.strftime("%d/%m/%Y")
-            self.cursor.execute("INSERT INTO tabelabancoSQLite VALUES (?, ?, ?, ?, ?)", (usuario.get_nome(), usuario.get_telefone(), usuario.get_email(), usuario.get_cpf(), data, ))
+            self.cursor.execute("INSERT INTO tabelabancoSQLite VALUES (?, ?, ?, ?, ?)", (usuario.nome, usuario.telefone, usuario.email, usuario.cpf, data, ))
             self.conexao.commit() #commita as infos no banco de dados
         except Exception as e:
             print('\nErro ao inserir usuário')
